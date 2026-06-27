@@ -1,28 +1,27 @@
-# 🎓 MotivaScan — Sistema de Detección de Motivación Estudiantil
+## MotivaScan — Sistema de Detección de Motivación Estudiantil
 
 > Aplicación de reconocimiento facial y de voz para detectar el estado emocional,
 > nivel de sueño y motivación de estudiantes universitarios en tiempo real.
 
 ---
 
-## 🗂️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 StudentMotivation/
-│
-├── app.py                  ← App principal (Streamlit - interfaz web)
-├── face_register.py        ← Registro de estudiantes (captura de fotos)
-├── face_training.py        ← Entrenamiento del modelo EigenFaces
-├── face_recognizer.py      ← Reconocimiento facial + análisis emoción/sueño
-├── voice_analyzer.py       ← Reconocimiento y análisis de voz
-├── utils.py                ← Funciones compartidas y configuración
-│
-├── models/
-│   ├── frontalface_default.xml   ← Clasificador Haar Cascade (incluido)
-│   └── modeloEigenFaces.xml      ← Modelo entrenado (se genera al entrenar)
-│
-├── DataFaces/              ← Banco de imágenes de estudiantes
-│   └── [nombre_estudiante]/
+─ Aplicacion.py: App principal (Streamlit - interfaz web)
+─ face_register.py: Registro de estudiantes (captura de fotos)
+─ face_training.py: Entrenamiento del modelo EigenFaces
+─ face_recognizer.py: Reconocimiento facial + análisis emoción/sueño
+─ voice_analyzer.py: Reconocimiento y análisis de voz
+─ utils.py: Funciones compartidas y configuración
+
+models/
+─ frontalface_default.xml: Clasificador Haar Cascade (incluido)
+─ modeloEigenFaces.xml: Modelo entrenado (se genera al entrenar)
+
+─ DataFaces/ - Banco de imágenes de estudiantes
+─ [nombre_estudiante]/
 │       └── foto_001.jpg ...
 │
 ├── registro_sesiones.json  ← Historial de sesiones (se genera automático)
@@ -31,11 +30,11 @@ StudentMotivation/
 
 ---
 
-## ⚡ Instalación rápida
+## Instalación rápida
 
 ### 1. Instalar dependencias
 
-```bash
+``` simbolo del sistema
 pip install -r requirements.txt
 ```
 
@@ -48,28 +47,21 @@ pip install -r requirements.txt
 
 ### 2. Para reconocimiento de voz (opcional)
 
-```bash
-pip install SpeechRecognition
+### cmd
+
+### pip install SpeechRecognition
 
 # Windows:
-pip install pyaudio
+### pip install pyaudio
 
-# Linux:
-sudo apt-get install portaudio19-dev
-pip install pyaudio
-
-# Mac:
-brew install portaudio
-pip install pyaudio
-```
 
 ---
 
-## 🚀 Cómo usar la aplicación
+## Cómo usar la aplicación
 
 ### Opción A — Interfaz Streamlit (Recomendada)
 
-```bash
+``` simbolo del sistema
 streamlit run app.py
 ```
 
@@ -77,7 +69,7 @@ Se abrirá en tu navegador en `http://localhost:8501`
 
 ### Opción B — Scripts individuales por consola
 
-```bash
+``` simbolo del sistema
 # 1. Registrar estudiante
 python face_register.py
 
@@ -93,7 +85,7 @@ python voice_analyzer.py
 
 ---
 
-## 📋 Flujo de uso
+## Flujo de uso
 
 ```
 1. REGISTRAR ESTUDIANTE
@@ -125,7 +117,7 @@ python voice_analyzer.py
 ## Tecnologías utilizadas
 
 | Componente | Tecnología |
-|---|---|
+
 | Detección facial | OpenCV + Haar Cascade |
 | Reconocimiento facial | EigenFaces (opencv-contrib) |
 | Análisis de sueño | Eye Aspect Ratio (apertura de ojos) |
@@ -139,7 +131,7 @@ python voice_analyzer.py
 ## Indicadores detectados
 
 | Indicador | Rango | Descripción |
-|---|---|---|
+
 | **Sueño** | 0–100% | 0% = completamente despierto, 100% = dormido |
 | **Motivación** | 0–100% | Índice combinado de emoción + sueño |
 | **Estado** | 5 categorías | Motivado / Neutral / Distraído / Estresado / Cansado |
@@ -149,19 +141,19 @@ python voice_analyzer.py
 ## Solución de problemas comunes
 
 **Error: `cv2.face` no encontrado**
-```bash
+``` simbolo del sistema
 pip uninstall opencv-python opencv-contrib-python
 pip install opencv-contrib-python
 ```
 
 **Cámara no detectada**
-```bash
+``` simbolo del sistema
 # Verifica que la cámara esté habilitada y no usada por otra app
 # Cambia el índice en face_recognizer.py: cv2.VideoCapture(1) en vez de (0)
 ```
 
 **Error de pyaudio en instalación**
-```bash
+``` simbolo del sistema
 # Windows: descarga el wheel desde https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
 pip install PyAudio‑0.2.14‑cp311‑cp311‑win_amd64.whl
 ```
