@@ -1,0 +1,17 @@
+# MotivaScan - Detección de Motivación Estudiantil
+# Requisitos del sistema
+
+# ── Core ────────────────────────────────────────────────────────────────────
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0   # Necesario para EigenFaceRecognizer
+numpy>=1.24.0
+imutils>=0.5.4
+
+# ── Interfaz ────────────────────────────────────────────────────────────────
+streamlit>=1.30.0
+pandas>=2.0.0
+
+# ── Reconocimiento de Voz (opcional) ────────────────────────────────────────
+SpeechRecognition>=3.10.0
+# pyaudio>=0.2.13
+# Para Windows: pip install pyaudio  (sin pasos extra)
